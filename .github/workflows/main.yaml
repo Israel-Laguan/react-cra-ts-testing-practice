@@ -15,11 +15,14 @@ name: Lint Code Base
 # Start the job on all push #
 #############################
 on:
+  # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches-ignore: [main]
-    # Remove the line above to run when pushing to master
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main, dev ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 ###############
 # Set the Job #
@@ -48,12 +51,8 @@ jobs:
       # Run Linter against code base #
       ################################
       - name: Lint Code Base
-        uses: github/super-linter@v4
+        uses: github/super-linter@v4.2.2
         env:
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-env:
-  LINTER_RULES_PATH: /
-  JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
-  VALIDATE_JAVASCRIPT_STANDARD: false
