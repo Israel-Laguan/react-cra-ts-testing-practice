@@ -1,0 +1,110 @@
+{
+  "name": "react-cra-ts-testing-practice",
+  "version": "0.1.1",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --coverage -w =100",
+    "eject": "react-scripts eject",
+    "lint:l": "eslint src/ --cache -f table",
+    "lint:f": "eslint src/ --fix",
+    "prettier:c": "prettier src/ --check",
+    "prepare": "husky install",
+    "test:c": "react-scripts test --coverage --watchAll=false --ci --passWithNoTests",
+    "test:cw": "react-scripts test --coverage --watchAll",
+    "test:r": "open ./coverage/lcov-report/index.html",
+    "test:tb": "jest-coverage-thresholds-bumper"
+  },
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@types/jest": "^26.0.23",
+    "@types/node": "^12.20.15",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.7",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.3.2",
+    "web-vitals": "^1.1.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
+    "husky": "^6.0.0",
+    "jest-coverage-thresholds-bumper": "^1.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1"
+  },
+  "engines": {
+    "node": "~14.17.0",
+    "npm": "^6.14.13"
+  },
+  "author": {
+    "name": "Israel Antonio Rosales Laguan",
+    "email": "israellaguan@gmail.com",
+    "gitHub": "https://github.com/Israel-Laguan",
+    "linkedIn": "https://www.linkedin.com/in/israellaguan/",
+    "hireable": true
+  },
+  "jest": {
+    "coverageReporters": [
+      "json",
+      "json-summary",
+      "lcov",
+      "clover",
+      "text",
+      "text-summary"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 9.09,
+        "branches": 0,
+        "functions": 33.33,
+        "lines": 9.09
+      }
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --cache --fix",
+      "npm run test:c",
+      "npm run test:tb",
+      "git add package.json"
+    ],
+    "*.{js,jsx,ts,tsx,css,md}": "prettier --write"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Israel-Laguan/react-cra-ts-testing-practice.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Israel-Laguan/react-cra-ts-testing-practice/issues"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "license": "ISC"
+}

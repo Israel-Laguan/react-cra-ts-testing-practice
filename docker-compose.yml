@@ -1,0 +1,22 @@
+version: "3"
+services:
+    frontend:
+        container_name: react-cra-ts-testing-practice
+        build: ./
+        image: israellaguan/react-cra-ts-testing-practice
+        tty: true
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/usr/src/app
+        command: [ "npm", "start" ]
+    test:
+        container_name: react-cra-ts-testing-practice
+        build: ./
+        image: israellaguan/react-cra-ts-testing-practice
+        tty: true    
+        environment:
+            - CI=true
+        volumes:
+            - .:/usr/src/app
+        command: [ "npm", "test" ]

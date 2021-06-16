@@ -1,0 +1,12 @@
+node_modules
+build
+.env
+.dockerignore
+LICENSE
+README
+.env.example
+.eslintrc.json
+docker-compose.yml
+Dockerfile
+docs/*
+.github/**/*
