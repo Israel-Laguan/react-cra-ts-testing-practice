@@ -11,6 +11,18 @@ module.exports = {
     'standard',
     'prettier',
   ],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    it: 'readonly',
+    describe: 'readonly',
+    expect: 'readonly',
+    beforeAll: 'readonly',
+    afterAll: 'readonly',
+    jest: 'writable',
+    React: 'readonly',
+    render: 'readonly',
+  },
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
