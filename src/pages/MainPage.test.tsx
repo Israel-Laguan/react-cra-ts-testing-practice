@@ -58,11 +58,11 @@ describe('Test Main Page', () => {
     useAuthContext.mockReturnValue({
       isAuthenticated: false,
     })
-    let comp: any
+    let component: any
     await act(async () => {
-      comp = render(<MainPage />)
+      component = render(<MainPage />)
     })
-    const element = comp.getByTestId(/Div::Result/)
+    const element = component.getByTestId(/Div::Result/)
     expect(element).toBeInTheDocument()
   })
 
@@ -70,11 +70,11 @@ describe('Test Main Page', () => {
     useAuthContext.mockReturnValue({
       isAuthenticated: true,
     })
-    let comp: any
+    let component: any
     await act(async () => {
-      comp = render(<MainPage />)
+      component = render(<MainPage />)
     })
-    const element = comp.getByText(/Welcome!/)
+    const element = component.getByText(/Welcome!/)
     expect(element).toBeInTheDocument()
   })
 
@@ -84,11 +84,11 @@ describe('Test Main Page', () => {
     })
     fakeCall.mockResolvedValue('TEST!')
 
-    let comp: any
+    let component: any
     await act(async () => {
-      comp = render(<MainPage />)
+      component = render(<MainPage />)
     })
-    const element = comp.getByText(/TEST!/)
+    const element = component.getByText(/TEST!/)
     expect(element).toBeInTheDocument()
   })
 })
